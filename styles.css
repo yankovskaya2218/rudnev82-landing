@@ -494,15 +494,15 @@ select:focus-visible, textarea:focus-visible, .segment-tile:focus-visible {
    ===================================================================== */
 .placeholder {
   position: relative;
-  background-color: #fbf3ea;
-  background-image: repeating-linear-gradient(45deg, rgba(232,89,12,.05) 0 14px, rgba(232,89,12,.11) 14px 28px);
-  border: 1.5px dashed #e9a877; min-height: 120px; display: flex; align-items: center; justify-content: center;
+  background-color: #f2f2f0;
+  background-image: repeating-linear-gradient(45deg, rgba(31,35,40,.025) 0 14px, rgba(31,35,40,.05) 14px 28px);
+  border: 1px dashed #c7c7c2; min-height: 120px; display: flex; align-items: center; justify-content: center;
 }
 .placeholder__tag {
   position: absolute; top: 10px; left: 10px; font-size: 12px; font-weight: 700; color: #fff;
-  background: var(--accent); padding: 5px 10px; border-radius: 6px; letter-spacing: .01em;
+  background: var(--ink-3); padding: 5px 10px; border-radius: var(--r-tag); letter-spacing: .01em;
 }
-.placeholder__inline { color: var(--accent); font-weight: 700; font-size: .85em; white-space: nowrap; }
+.placeholder__inline { color: var(--ink-3); font-weight: 700; font-size: .85em; white-space: nowrap; }
 .placeholder__link { position: relative; }
 
 /* =====================================================================
