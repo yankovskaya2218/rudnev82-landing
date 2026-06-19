@@ -6,6 +6,8 @@
   <title>Руднев Консалт: автоматизация бизнеса в Крыму под ключ</title>
   <meta name="description" content="Поставим и зарегистрируем кассу, внедрим 1С, возьмём учёт и технику на обслуживание. Один подрядчик вместо пяти, по всему Крыму и удалённо." />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Помечаем, что JS активен: блоки скрываются для анимации только при работающем JS -->
+  <script>document.documentElement.classList.add('js');</script>
   <!-- ⚠ Шрифты подключать локально (self-hosted .woff2). На проде заменить системный стек в styles.css. -->
 </head>
 <body>
@@ -132,7 +134,7 @@
     </section>
 
     <!-- ============ ЧТО МЫ ДЕЛАЕМ ============ -->
-    <section class="services section" id="services">
+    <section class="services section reveal" id="services">
       <div class="container">
         <header class="section__head">
           <p class="section__eyebrow">Направления</p>
@@ -141,48 +143,49 @@
         </header>
 
         <div class="services__grid">
-          <!-- ⚠ Позже ссылки ведут на отдельные страницы направлений (/kassy, /1c, /buh, /service). -->
-          <article class="product-card">
-            <span class="product-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M4 8h16l-1.5 11H5.5L4 8z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-            </span>
-            <h3 class="product-card__title">Кассы и&nbsp;торговое оборудование</h3>
-            <p class="product-card__text">Подберём, поставим и&nbsp;зарегистрируем кассу по&nbsp;54-ФЗ. Сканеры, весы, ТСД, принтеры этикеток, расходники.</p>
-          </article>
+          <!-- ⚠ Позже href ведут на отдельные страницы направлений (/kassy, /1c, /buh, /service). Пока — на форму с подстановкой темы. -->
+          <a class="srv" href="#lead" data-topic="Кассы и оборудование">
+            <span class="srv__meta" aria-hidden="true"></span>
+            <span class="srv__n">1</span>
+            <h3 class="srv__title">Кассы и&nbsp;торговое оборудование</h3>
+            <p class="srv__text">Подберём, поставим и&nbsp;зарегистрируем кассу по&nbsp;54-ФЗ. Сканеры, весы, ТСД, принтеры этикеток, расходники.</p>
+            <span class="srv__go" aria-hidden="true">Обсудить <i>→</i></span>
+          </a>
 
-          <article class="product-card product-card--feature">
-            <span class="product-card__badge">
-              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-              Официальный партнёр 1С
+          <a class="srv srv--feature" href="#lead" data-topic="1С: внедрение и сопровождение">
+            <span class="srv__meta">
+              <span class="srv__badge">
+                <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+                Партнёр 1С
+              </span>
             </span>
-            <span class="product-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><rect x="3.5" y="4.5" width="17" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M8 20.5h8M12 17.5v3"/></svg>
-            </span>
-            <h3 class="product-card__title">1С: внедрение и&nbsp;сопровождение</h3>
-            <p class="product-card__text">Устанавливаем и&nbsp;сопровождаем лицензионно: настройка, обновления, ЕГАИС, Честный знак, ЭДО, отчётность.</p>
-          </article>
+            <span class="srv__n">2</span>
+            <h3 class="srv__title">1С: внедрение и&nbsp;сопровождение</h3>
+            <p class="srv__text">Устанавливаем и&nbsp;сопровождаем лицензионно: настройка, обновления, ЕГАИС, Честный знак, ЭДО, отчётность.</p>
+            <span class="srv__go" aria-hidden="true">Обсудить <i>→</i></span>
+          </a>
 
-          <article class="product-card">
-            <span class="product-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M6 3.5h8l4 4v13H6z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M9 12h6M9 15.5h6"/></svg>
-            </span>
-            <h3 class="product-card__title">Бухгалтерское обслуживание</h3>
-            <p class="product-card__text">Ведём учёт ИП и&nbsp;ООО, сдаём отчётность вовремя, без штрафов. Поможем с&nbsp;регистрацией бизнеса.</p>
-          </article>
+          <a class="srv" href="#lead" data-topic="Бухгалтерское обслуживание">
+            <span class="srv__meta" aria-hidden="true"></span>
+            <span class="srv__n">3</span>
+            <h3 class="srv__title">Бухгалтерское обслуживание</h3>
+            <p class="srv__text">Ведём учёт ИП и&nbsp;ООО, сдаём отчётность вовремя, без штрафов. Поможем с&nbsp;регистрацией бизнеса.</p>
+            <span class="srv__go" aria-hidden="true">Обсудить <i>→</i></span>
+          </a>
 
-          <article class="product-card">
-            <span class="product-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M14.5 4.5a4 4 0 0 1-5.2 5.2L4.5 14.5l2 2 4.8-4.8a4 4 0 0 0 5.2-5.2l-2.4 2.4-1.8-1.8z"/></svg>
-            </span>
-            <h3 class="product-card__title">IT и&nbsp;сервис</h3>
-            <p class="product-card__text">Обслуживаем технику и&nbsp;сети. Чиним кассы, меняем ФН, помогаем удалённо.</p>
-          </article>
+          <a class="srv" href="#lead" data-topic="IT и сервис">
+            <span class="srv__meta" aria-hidden="true"></span>
+            <span class="srv__n">4</span>
+            <h3 class="srv__title">IT и&nbsp;сервис</h3>
+            <p class="srv__text">Обслуживаем технику и&nbsp;сети. Чиним кассы, меняем ФН, помогаем удалённо.</p>
+            <span class="srv__go" aria-hidden="true">Обсудить <i>→</i></span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ============ СЕГМЕНТЫ ============ -->
-    <section class="segments section section--alt">
+    <section class="segments section section--alt reveal">
       <div class="container">
         <header class="section__head">
           <p class="section__eyebrow">Под&nbsp;ваш профиль</p>
@@ -244,7 +247,7 @@
     </section>
 
     <!-- ============ ОТСТРОЙКА «ОДИН ВМЕСТО ПЯТИ» ============ -->
-    <section class="turnkey section">
+    <section class="turnkey section reveal">
       <div class="container turnkey__inner">
         <div class="turnkey__lead">
           <p class="section__eyebrow">Полный цикл в&nbsp;одном окне</p>
@@ -276,11 +279,13 @@
     </section>
 
     <!-- ============ ЗНАЕМ ВАШУ КУХНЮ ============ -->
-    <section class="know section section--alt">
+    <section class="know section section--alt reveal">
       <div class="container">
-        <header class="section__head">
-          <p class="section__eyebrow">Берём на&nbsp;себя то, в&nbsp;чём легко ошибиться</p>
-          <h2 class="section__title">Знаем требования и&nbsp;держим вас в&nbsp;рамках</h2>
+        <header class="section__head section__head--split">
+          <div class="section__head-main">
+            <p class="section__eyebrow">Берём на&nbsp;себя то, в&nbsp;чём легко ошибиться</p>
+            <h2 class="section__title">Знаем требования и&nbsp;держим вас в&nbsp;рамках</h2>
+          </div>
           <p class="section__intro">Маркировка, ЕГАИС, замена ФН, сроки отчётности, обновления, во&nbsp;всём этом легко запутаться. Мы следим за&nbsp;изменениями и&nbsp;настраиваем работу так, чтобы вы про них не&nbsp;думали.</p>
         </header>
 
@@ -321,7 +326,7 @@
     </section>
 
     <!-- ============ КАК МЫ РАБОТАЕМ ============ -->
-    <section class="process section">
+    <section class="process section reveal">
       <div class="container">
         <header class="section__head">
           <p class="section__eyebrow">Как мы&nbsp;работаем</p>
@@ -353,39 +358,57 @@
       </div>
     </section>
 
-    <!-- ============ КЕЙСЫ ============ -->
-    <section class="cases section section--alt" id="cases">
+    <!-- ============ РЕЗУЛЬТАТЫ (горизонтальный слайдер) ============ -->
+    <section class="cases section section--alt reveal" id="cases">
       <div class="container">
-        <header class="section__head">
-          <p class="section__eyebrow">Реальные проекты</p>
-          <h2 class="section__title">С&nbsp;чем уже помогли</h2>
-          <p class="section__intro">Конкретные задачи крымского бизнеса и&nbsp;результат нашей работы.</p>
+        <header class="section__head cases__head">
+          <div>
+            <p class="section__eyebrow">Реальные проекты</p>
+            <h2 class="section__title">Результаты нашей работы</h2>
+          </div>
+          <div class="cases__nav">
+            <button type="button" class="cases__arrow" data-dir="prev" aria-label="Предыдущий кейс">←</button>
+            <button type="button" class="cases__arrow" data-dir="next" aria-label="Следующий кейс">→</button>
+          </div>
         </header>
 
-        <div class="cases__grid">
+        <div class="cases__slider" id="cases-slider" tabindex="0" role="group" aria-label="Кейсы, прокрутка по&nbsp;горизонтали">
           <article class="case-card">
-            <span class="case-card__tag">Розница, алкоголь и&nbsp;маркировка</span>
+            <div class="case-card__top">
+              <span class="case-card__tag">Розница, алкоголь и&nbsp;маркировка</span>
+              <!-- ⚠ Заменить на реальный логотип клиента (.svg/.png с alt). -->
+              <span class="case-card__logo placeholder"><span class="placeholder__tag">⚠ Лого</span></span>
+            </div>
             <h3 class="case-card__title">Магазин с&nbsp;алкоголем и&nbsp;маркированными товарами</h3>
             <p class="case-card__task"><b>Задача:</b> автоматизировать с&nbsp;нуля.</p>
             <p class="case-card__result"><b>Результат:</b> внедрили 1С, поставили оборудование с&nbsp;весами, подключили ЕГАИС и&nbsp;Честный знак.</p>
           </article>
 
           <article class="case-card">
-            <span class="case-card__tag">Сеть, 4&nbsp;точки</span>
+            <div class="case-card__top">
+              <span class="case-card__tag">Сеть, 4&nbsp;точки</span>
+              <span class="case-card__logo placeholder"><span class="placeholder__tag">⚠ Лого</span></span>
+            </div>
             <h3 class="case-card__title">Сеть магазинов игрушек</h3>
             <p class="case-card__task"><b>Задача:</b> уйти от&nbsp;учёта в&nbsp;Excel.</p>
             <p class="case-card__result"><b>Результат:</b> полная автоматизация, кассы, сканеры, принтеры и&nbsp;терминалы оплаты.</p>
           </article>
 
           <article class="case-card">
-            <span class="case-card__tag">Два офиса, разные города</span>
+            <div class="case-card__top">
+              <span class="case-card__tag">Два офиса, разные города</span>
+              <span class="case-card__logo placeholder"><span class="placeholder__tag">⚠ Лого</span></span>
+            </div>
             <h3 class="case-card__title">Магазин красок</h3>
             <p class="case-card__task"><b>Задача:</b> навести порядок в&nbsp;учёте.</p>
             <p class="case-card__result"><b>Результат:</b> настройка, обучение и&nbsp;восстановление управленческого учёта в&nbsp;1С:УНФ.</p>
           </article>
 
           <article class="case-card">
-            <span class="case-card__tag">7&nbsp;офисов, Крым и&nbsp;Севастополь</span>
+            <div class="case-card__top">
+              <span class="case-card__tag">7&nbsp;офисов, Крым и&nbsp;Севастополь</span>
+              <span class="case-card__logo placeholder"><span class="placeholder__tag">⚠ Лого</span></span>
+            </div>
             <h3 class="case-card__title">Диализный центр</h3>
             <p class="case-card__task"><b>Задача:</b> поддержка касс и&nbsp;1С на&nbsp;всех площадках.</p>
             <p class="case-card__result"><b>Результат:</b> быстро реагируем по&nbsp;всем точкам, держим оборудование и&nbsp;учёт в&nbsp;порядке.</p>
@@ -397,7 +420,7 @@
     </section>
 
     <!-- ============ ЗАПУСТИЛИ, НЕ БРОСИЛИ ============ -->
-    <section class="support section">
+    <section class="support section reveal">
       <div class="container">
         <header class="section__head">
           <p class="section__eyebrow">Поддержка после запуска</p>
@@ -434,7 +457,7 @@
     </section>
 
     <!-- ============ ОТЗЫВЫ ============ -->
-    <section class="reviews section section--alt">
+    <section class="reviews section section--alt reveal">
       <div class="container">
         <header class="section__head">
           <p class="section__eyebrow">Обратная связь</p>
@@ -474,7 +497,7 @@
     </section>
 
     <!-- ============ ЦЕНЫ ============ -->
-    <section class="pricing section" id="pricing">
+    <section class="pricing section reveal" id="pricing">
       <div class="container">
         <header class="section__head">
           <p class="section__eyebrow">Без скрытых платежей</p>
@@ -542,7 +565,7 @@
     </section>
 
     <!-- ============ КОМАНДА ============ -->
-    <section class="team section section--alt">
+    <section class="team section section--alt reveal">
       <div class="container">
         <div class="team__inner">
           <div class="team__content">
@@ -573,7 +596,7 @@
     </section>
 
     <!-- ============ FAQ ============ -->
-    <section class="faq section" id="faq">
+    <section class="faq section reveal" id="faq">
       <div class="container faq__inner">
         <header class="section__head faq__head">
           <p class="section__eyebrow">Частые вопросы</p>
@@ -610,7 +633,7 @@
     </section>
 
     <!-- ============ ФИНАЛЬНЫЙ CTA + ПОДБОР + ФОРМА ============ -->
-    <section class="lead section section--dark" id="lead">
+    <section class="lead section section--dark reveal" id="lead">
       <div class="container lead__inner">
         <div class="lead__text">
           <h2 class="lead__title">Поможем подобрать решение</h2>
@@ -676,8 +699,8 @@
             <p class="lead-form__reco" id="form-reco" hidden></p>
             <div class="field">
               <label class="field__label" for="phone">Телефон <span class="field__req">обязательно</span></label>
-              <input class="field__input" type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required />
-              <span class="field__error" data-for="phone">Укажите телефон для&nbsp;связи</span>
+              <input class="field__input" type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required aria-describedby="error-phone" />
+              <span class="field__error" id="error-phone" data-for="phone">Укажите телефон для&nbsp;связи</span>
             </div>
             <div class="field">
               <label class="field__label" for="name">Имя <span class="field__opt">по&nbsp;желанию</span></label>
@@ -704,10 +727,10 @@
             </div>
 
             <label class="consent">
-              <input class="consent__box" type="checkbox" id="consent" name="consent" required />
+              <input class="consent__box" type="checkbox" id="consent" name="consent" required aria-describedby="error-consent" />
               <span class="consent__text">Даю согласие на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="#" class="placeholder__link">Политикой конфиденциальности</a> <span class="placeholder__inline">⚠ ссылка</span></span>
             </label>
-            <span class="field__error" data-for="consent">Нужно согласие на&nbsp;обработку данных</span>
+            <span class="field__error" id="error-consent" data-for="consent">Нужно согласие на&nbsp;обработку данных</span>
 
             <button class="btn btn--primary btn--lg btn--block" type="submit">Отправить заявку</button>
             <p class="lead-form__note">Перезвоним в&nbsp;рабочее время, обычно в&nbsp;течение 15&nbsp;минут. Заявка ни&nbsp;к&nbsp;чему не&nbsp;обязывает.</p>

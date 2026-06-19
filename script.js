@@ -133,12 +133,12 @@
 
       var phoneField = phone.closest('.field');
       var digits = (phone.value.match(/\d/g) || []).length;
-      if (digits < 10) { phoneField.classList.add('is-invalid'); ok = false; }
-      else phoneField.classList.remove('is-invalid');
+      if (digits < 10) { phoneField.classList.add('is-invalid'); phone.setAttribute('aria-invalid', 'true'); ok = false; }
+      else { phoneField.classList.remove('is-invalid'); phone.removeAttribute('aria-invalid'); }
 
       var consentLabel = consent.closest('.consent');
-      if (!consent.checked) { consentLabel.classList.add('is-invalid'); ok = false; }
-      else consentLabel.classList.remove('is-invalid');
+      if (!consent.checked) { consentLabel.classList.add('is-invalid'); consent.setAttribute('aria-invalid', 'true'); ok = false; }
+      else { consentLabel.classList.remove('is-invalid'); consent.removeAttribute('aria-invalid'); }
 
       if (!ok) {
         var firstError = form.querySelector('.is-invalid');
@@ -164,8 +164,43 @@
     form.addEventListener('input', function (e) {
       var field = e.target.closest('.field');
       if (field) field.classList.remove('is-invalid');
+      e.target.removeAttribute('aria-invalid');
       if (e.target.id === 'consent') e.target.closest('.consent').classList.remove('is-invalid');
     });
+  }
+
+  /* ---------- Слайдер кейсов (горизонтальный) ---------- */
+  var slider = document.getElementById('cases-slider');
+  if (slider) {
+    var arrows = document.querySelectorAll('.cases__arrow');
+    function cardStep() {
+      var card = slider.querySelector('.case-card');
+      if (!card) return slider.clientWidth;
+      var gap = parseInt(getComputedStyle(slider).columnGap || getComputedStyle(slider).gap || '28', 10) || 28;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function updateArrows() {
+      var maxScroll = slider.scrollWidth - slider.clientWidth - 2;
+      arrows.forEach(function (a) {
+        var dir = a.getAttribute('data-dir');
+        if (dir === 'prev') a.disabled = slider.scrollLeft <= 0;
+        else a.disabled = Math.ceil(slider.scrollLeft) >= maxScroll;
+      });
+    }
+    function move(dir) { slider.scrollBy({ left: dir * cardStep(), behavior: 'smooth' }); }
+    arrows.forEach(function (a) {
+      a.addEventListener('click', function () {
+        move(a.getAttribute('data-dir') === 'next' ? 1 : -1);
+      });
+    });
+    /* Прокрутка слайдера стрелками клавиатуры, когда он в фокусе */
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); move(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); move(-1); }
+    });
+    slider.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
   }
 
   /* ---------- Появление элементов при скролле ---------- */
